@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Plant.destroy_all
+Plant.create ([
+  {name: "Rose"},
+  {name: "Thyme"},
+  {name: "Hyacinth"}
+  ])
