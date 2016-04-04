@@ -1,0 +1,2 @@
+module PlantSpotsHelper
+end

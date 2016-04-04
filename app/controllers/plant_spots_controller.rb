@@ -1,0 +1,2 @@
+class PlantSpotsController < ApplicationController
+end
