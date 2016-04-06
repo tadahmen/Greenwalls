@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   root 'docs#index'
 
-  resources :plants_container do
-    resources :plant_spot
+  resources :plants_containers do
+    resources :plant_spots
   end
 
-  resources :plant
+  resources :plants
 
 end
   # The priority is based upon order of creation: first created -> highest priority.

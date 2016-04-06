@@ -1,0 +1,28 @@
+<h1>Greenwalls API</h1>
+
+<p>This is a RESTful JSON API for Greenwalls app. It exposes the following endpoints:</p>
+
+<ul>
+  <li>
+    <%= link_to "#get-plants_containers" do %>
+      <code>GET /plants_containers</code>
+    <% end %>
+  </li>
+</ul>
+
+<h2 id="#get-todos">GET /plants_containers</h2>
+<pre>
+  {
+    meta: {
+      count: 1,
+      page: 0
+    },
+    plants_containers: [
+      {
+        id: 1,
+        name: "for balkony",
+        price: 14,35
+      }
+    ]
+  }
+</pre>
