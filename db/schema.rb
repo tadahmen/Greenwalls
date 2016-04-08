@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20160403162618) do
 
   create_table "plants_containers", force: :cascade do |t|
     t.string   "name"
-    t.float    "price"
+    t.float    "prize"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

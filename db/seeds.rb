@@ -8,13 +8,16 @@
 
 PlantsContainer.destroy_all
 PlantsContainer.create ([
-  {name: "little garden"}
+  {name: "little garden"},
+  {name: "kitchen garden"}
 ])
 
 PlantSpot.destroy_all
 testspot1=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.first})
 testspot2=PlantSpot.create ({x_position: 1, plants_container: PlantsContainer.first})
 testspot3=PlantSpot.create ({x_position: 2, plants_container: PlantsContainer.first})
+testspot4=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.where(name:"kitchen garden")})
+
 
 Plant.destroy_all
 Plant.create ([
