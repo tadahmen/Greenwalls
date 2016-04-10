@@ -13,8 +13,6 @@ class PlantSpotsController < ApplicationController
     }
   end
 
-  private
-
   def set_plants_container
     @plants_container = PlantsContainer.find(params[:plants_container_id])
   end

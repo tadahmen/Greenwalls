@@ -11,29 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160403162618) do
+ActiveRecord::Schema.define(version: 20160403162057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "plant_spots", force: :cascade do |t|
     t.integer  "x_position"
+    t.integer  "plant_id"
     t.integer  "plants_container_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
 
+  add_index "plant_spots", ["plant_id"], name: "index_plant_spots_on_plant_id", using: :btree
   add_index "plant_spots", ["plants_container_id"], name: "index_plant_spots_on_plants_container_id", using: :btree
 
   create_table "plants", force: :cascade do |t|
     t.string   "name"
     t.string   "picture"
-    t.integer  "plant_spot_id"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
-
-  add_index "plants", ["plant_spot_id"], name: "index_plants_on_plant_spot_id", using: :btree
 
   create_table "plants_containers", force: :cascade do |t|
     t.string   "name"
@@ -42,6 +41,6 @@ ActiveRecord::Schema.define(version: 20160403162618) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "plant_spots", "plants"
   add_foreign_key "plant_spots", "plants_containers"
-  add_foreign_key "plants", "plant_spots"
 end

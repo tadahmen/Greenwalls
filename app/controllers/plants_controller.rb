@@ -11,4 +11,13 @@ class PlantsController < ApplicationController
     }
   end
 
+  def show
+    # set_plant
+    render json: Plant.find(params[:id])
+  end
+
+  # def set_plant
+  #   @plant =Plant.find(params[:id])
+  # end
+
 end
