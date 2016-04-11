@@ -20,7 +20,7 @@ Plant.create ([
 ])
 
 PlantSpot.destroy_all
-testspot1=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.first, plant: Plant.where(name:"Hyacinth").first})
+testspot1=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.first, plant: Plant.first})
 testspot2=PlantSpot.create ({x_position: 1, plants_container: PlantsContainer.first})
-testspot3=PlantSpot.create ({x_position: 2, plants_container: PlantsContainer.first})
-testspot4=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.where(name:"kitchen garden").first, plant: Plant.first})
+testspot3=PlantSpot.create ({x_position: 2, plants_container: PlantsContainer.first, plant: Plant.where(name:"Hyacinth").first})
+testspot4=PlantSpot.create ({x_position: 0, plants_container: PlantsContainer.where(name:"kitchen garden").first, plant: Plant.where(name:"Thyme").first})
