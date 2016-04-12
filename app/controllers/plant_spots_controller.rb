@@ -40,6 +40,18 @@ class PlantSpotsController < ApplicationController
     end
   end
 
+  def destroy
+    plant_spot = @plants_container.plant_spots.find(params[:id])
+
+    if plant_spot.destroy
+      render json: { plant_spot: nil }
+    else
+      render json: {
+        message: "Plant spot not deleted, you could try it again.",
+      }, status: :unprocessible_entity
+    end
+  end
+
   private
 
   def set_plants_container
