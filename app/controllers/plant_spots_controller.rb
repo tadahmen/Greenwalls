@@ -13,6 +13,20 @@ class PlantSpotsController < ApplicationController
     }
   end
 
+  def create
+    plant_spot = PlantSpot.new(plant_spot_params)
+    plant_spot.plants_container = @plants_container
+
+    if plant_spot = plant_spot.save
+      render json: { plant_spot: plant_spot }
+    else
+      render json: {
+        message: "Could not create plant spot",
+        errors: plant_spot.errors,
+      }, status: :unprocessible_entity
+    end
+  end
+
   def update
     plant_spot = PlantSpot.find(params[:id])
 
@@ -33,7 +47,7 @@ class PlantSpotsController < ApplicationController
   end
 
   def plant_spot_params
-    params.require(:plant_spot).permit(:plants_container_id, :plant_id)
+    params.require(:plant_spot).permit(:x_position, :plant_id, :plants_container_id)
   end
 
 end
