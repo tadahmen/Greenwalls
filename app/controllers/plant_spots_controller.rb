@@ -9,7 +9,7 @@ class PlantSpotsController < ApplicationController
         count: @plants_container.plant_spots.count,
         page: 0
       },
-      plant_spots: @plants_container.plant_spots.order(:x_position)
+      plant_spots: @plants_container.plant_spots.order(:id)
     }
   end
 
