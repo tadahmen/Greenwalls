@@ -7,7 +7,7 @@ class PlantsContainersController < ApplicationController
         count: PlantsContainer.all.count,
         page: 0
       },
-      plants_containers: PlantsContainer.all.order(:name)
+      plants_containers: PlantsContainer.all.order(:id)
     }
   end
 
