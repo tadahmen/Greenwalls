@@ -23,6 +23,10 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem ruby  "2.2.3"
+
+gem 'puma'
+
 gem 'rack-cors', require: 'rack/cors'   #to solve cross domain issue
 
 # Use ActiveModel has_secure_password
@@ -48,4 +52,8 @@ group :development do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+end
+
+group :production do
+	 gem 'rails_12factor'
 end
