@@ -24,6 +24,20 @@ class PlantsContainersController < ApplicationController
     end
   end
 
+  def update
+    plants_container = PlantsContainer.find(params[:id])
+
+    if plants_container.update(plants_container_params)
+      render json: { plants_container: plants_container }
+    else
+      render json: {
+        message: "Could not update plant container",
+        errors: plants_container.errors,
+      }, status: :unprocessible_entity
+    end
+  end
+
+
   def destroy
     plants_container = PlantsContainer.find(params[:id])
 
@@ -36,10 +50,10 @@ class PlantsContainersController < ApplicationController
     end
   end
 
-private
+  private
 
-def plants_container_params
-  params.require(:plants_container).permit(:name, :price)
-end
+  def plants_container_params
+    params.require(:plants_container).permit(:name, :price)
+  end
 
 end
