@@ -1,5 +1,5 @@
 class PlantsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  # skip_before_action :verify_authenticity_token
 
   def index
     render json: {
@@ -12,12 +12,13 @@ class PlantsController < ApplicationController
   end
 
   def show
-    # set_plant
     render json: Plant.find(params[:id])
   end
 
-  # def set_plant
-  #   @plant =Plant.find(params[:id])
-  # end
+  private
+
+  def plants_params
+    params.require(:plant).permit(:id, :name, :picture)
+  end
 
 end
